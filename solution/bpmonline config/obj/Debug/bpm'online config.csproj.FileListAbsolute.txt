@@ -1,0 +1,6 @@
+D:\Projects\bpm'online config\solution\bpm'online config\bin\Debug\bpm'online config.dll
+D:\Projects\bpm'online config\solution\bpm'online config\bin\Debug\bpm'online config.pdb
+D:\Projects\bpm'online config\solution\bpm'online config\obj\Debug\bpm_online_config.BpmonlineConfiguration.resources
+D:\Projects\bpm'online config\solution\bpm'online config\obj\Debug\bpm'online config.csproj.GenerateResource.Cache
+D:\Projects\bpm'online config\solution\bpm'online config\obj\Debug\bpm'online config.dll
+D:\Projects\bpm'online config\solution\bpm'online config\obj\Debug\bpm'online config.pdb

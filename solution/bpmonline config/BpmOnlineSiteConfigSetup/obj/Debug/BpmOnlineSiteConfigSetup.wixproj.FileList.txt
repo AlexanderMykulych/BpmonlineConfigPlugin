@@ -1,0 +1,8 @@
+D:\Projects\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmOnlineSiteConfigSetup.msi
+D:\Projects\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmOnlineSiteConfigSetup.wixpdb
+obj\Debug\Product.wixobj
+obj\Debug\BpmOnlineSiteConfigSetup.wixproj.BindContentsFileListnull.txt
+obj\Debug\BpmOnlineSiteConfigSetup.wixproj.BindOutputsFileListnull.txt
+obj\Debug\BpmOnlineSiteConfigSetup.wixproj.BindBuiltOutputsFileListnull.txt
+C:\Users\Konstantin\Google Диск\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.msi
+C:\Users\Konstantin\Google Диск\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.wixpdb

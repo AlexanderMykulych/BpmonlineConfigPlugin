@@ -1,0 +1,3 @@
+D:\Projects\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmOnlineSiteConfigSetup.msi
+D:\Projects\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmOnlineSiteConfigSetup.wixpdb
+obj\Release\Product.wixobj

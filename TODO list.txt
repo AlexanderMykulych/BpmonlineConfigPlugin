@@ -1,0 +1,14 @@
+Костя, если будет время добавь возможность вычислять значения портов и номер базы redis на основе Id сайта
+Я обычно ставлю бд редис равную Id сайта, порт сайта ставлю 80{Id}, а порт для сокетов 88{id}
+
+Также ставлю в ..\Terrasoft.WebApp\Web.config
+<add key="IncludeDebugInformation" value="true" />
+<compilation debug="true" targetFramework="4.0" />
+
+И в Web.config
+<compilation debug="true" targetFramework="4.0" />
+
+Правда, не знаю обязательно указывать ли это.
+
+Еще обычно делаю отдельный  connectionstring для Quartz со своим ApplicationName, чтобы потом не видеть запросы планировщика в профайлере
+<add key="quartz.dataSource.SchedulerDb.connectionStringName" value="schedulerDb" />

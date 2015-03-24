@@ -1,0 +1,14 @@
+D:\Projects\bpmonline config\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.dll
+D:\Projects\bpmonline config\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineConfig.BpmonlineConfiguration.resources
+D:\Projects\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineConfig.csproj.GenerateResource.Cache
+D:\Projects\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.dll
+D:\Projects\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineConfig.csprojResolveAssemblyReference.cache
+C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.dll
+C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.pdb
+C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineConfig.csprojResolveAssemblyReference.cache
+C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineConfig.BpmonlineConfiguration.resources
+C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineConfig.csproj.GenerateResource.Cache
+C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.dll
+C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.pdb

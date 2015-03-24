@@ -1,0 +1,2 @@
+C:\Users\Konstantin\Google Диск\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.msi
+C:\Users\Konstantin\Google Диск\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.wixpdb
