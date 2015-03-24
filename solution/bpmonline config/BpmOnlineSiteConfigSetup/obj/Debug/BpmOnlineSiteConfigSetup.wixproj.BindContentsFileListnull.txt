@@ -1,1 +1,1 @@
-..\bin\Debug\BpmOnlineSiteConfigExtention.dll
+..\bin\Release\BpmOnlineSiteConfigExtention.dll

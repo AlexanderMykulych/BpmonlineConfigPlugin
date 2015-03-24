@@ -26,3 +26,10 @@ C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj
 C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csproj.GenerateResource.Cache
 C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.dll
 C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csprojResolveAssemblyReference.cache
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.BpmonlineConfiguration.resources
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csproj.GenerateResource.Cache
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\BpmOnlineSiteConfigExtention.dll
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.dll
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.pdb
