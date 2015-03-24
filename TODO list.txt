@@ -12,3 +12,6 @@
 
 Еще обычно делаю отдельный  connectionstring для Quartz со своим ApplicationName, чтобы потом не видеть запросы планировщика в профайлере
 <add key="quartz.dataSource.SchedulerDb.connectionStringName" value="schedulerDb" />
+
++ Настройка путей к лог файлам
+!!! Падает если не создать Application. Поработать над обработкой ошибок, чтобы вы программа не вылетала, а просто блокировались поля
