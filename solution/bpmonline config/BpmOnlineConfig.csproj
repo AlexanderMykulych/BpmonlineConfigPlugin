@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BpmOnlineSite.cs" />
     <Compile Include="ConfigFile.cs" />
+    <Compile Include="IisManagement\BpmOnlineConfigHomepageExtension.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigUI.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigUIPage.cs">
       <SubType>Component</SubType>
@@ -70,8 +72,22 @@
       <DependentUpon>BpmonlineConfiguration.cs</DependentUpon>
     </Compile>
     <Compile Include="BpmOnlineSettings.cs" />
+    <Compile Include="IisManagement\BpmOnlineHomepageTaskList.cs" />
     <Compile Include="IisManagement\BpmOnlineUIModuleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\Base\BooleanSetting.cs" />
+    <Compile Include="Settings\Base\BaseSetting.cs" />
+    <Compile Include="Settings\CsPath.cs" />
+    <Compile Include="Settings\ExtractAllCsSources.cs" />
+    <Compile Include="Settings\ExtractCs.cs" />
+    <Compile Include="Settings\ExtractJs.cs" />
+    <Compile Include="Settings\Base\IntegerSetting.cs" />
+    <Compile Include="Settings\JsPath.cs" />
+    <Compile Include="Settings\MaxEntityNameLength.cs" />
+    <Compile Include="Settings\SessionTimeOutMinutes.cs" />
+    <Compile Include="Settings\Base\TextSetting.cs" />
+    <Compile Include="Settings\UncompressedCoreJs.cs" />
+    <Compile Include="Settings\WebSocketsPort.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />

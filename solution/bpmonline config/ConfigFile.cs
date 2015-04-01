@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BpmOnlineConfig
 {
-    class ConfigFile
+    public class ConfigFile
     {
         private readonly XmlNode root;
         private string fullFileName;

@@ -1,41 +1,44 @@
 ﻿using System;
 using System.Windows.Forms;
+using BpmOnlineConfig.Settings;
 using Microsoft.Web.Administration;
 
 namespace BpmOnlineConfig
 {
     public partial class BpmonlineConfiguration : UserControl
     {
-        private ServerManager serverManager;
-        private BpmOnlineSettings settings;
+        private ServerManager _serverManager;
+        private BpmOnlineSettings _settings;
 
         public BpmonlineConfiguration(ServerManager serverManager)
         {
-            this.serverManager = serverManager;
+            _serverManager = serverManager;
             InitializeComponent();
         }
 
         public void Initialize(string siteName, string virtualPath)
         {
-            settings = new BpmOnlineSettings(this.serverManager, siteName, virtualPath);
-            ReadSettings();
+            var site = new BpmOnlineSite(_serverManager, siteName, virtualPath);
+            _settings = new BpmOnlineSettings(site);
+            BindSettings(_settings);
+            _settings.Show();
             UpdateControlsByExtractJSFlug();
             UpdateControlsByExtractCSFlug();
         }
 
         #region Private: Methods
 
-        private void ReadSettings()
+        private void BindSettings(BpmOnlineSettings settings)
         {
-            edtSessionTimeOut.Value = settings.SessionTimeOutMinutes;
-            edtWebSocketsPort.Text = settings.WebSocketsPort;
-            edtMaxEntityNameLength.Value = settings.MaxEntityNameLength;
-            chbExtractJS.Checked = settings.ExtractJs;
-            edtJSPath.Text = settings.JsPath;
-            chbUncompressedJS.Checked = settings.UncompressedCoreJs;
-            chbExtractCS.Checked = settings.ExtractCs;
-            chbExtractAllCSSources.Checked = settings.ExtractAllCsSources;
-            edtCSPath.Text = settings.CsPath;
+            settings.Add(new SessionTimeOutMinutes(edtSessionTimeOut));
+            settings.Add(new WebSocketsPort(edtWebSocketsPort));
+            settings.Add(new MaxEntityNameLength(edtMaxEntityNameLength));
+            settings.Add(new ExtractJs(chbExtractJS));
+            settings.Add(new JsPath(edtJSPath));
+            settings.Add(new UncompressedCoreJs(chbUncompressedJS));
+            settings.Add(new ExtractCs(chbExtractCS));
+            settings.Add(new ExtractAllCsSources(chbExtractAllCSSources));
+            settings.Add(new CsPath(edtCSPath));
         }
 
         private void UpdateControlsByExtractJSFlug()
@@ -85,16 +88,7 @@ namespace BpmOnlineConfig
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            settings.SessionTimeOutMinutes = Convert.ToInt32(edtSessionTimeOut.Value);
-            settings.WebSocketsPort = edtWebSocketsPort.Text;
-            settings.MaxEntityNameLength = Convert.ToInt32(edtMaxEntityNameLength.Value);
-            settings.ExtractJs = chbExtractJS.Checked;
-            settings.JsPath = edtJSPath.Text;
-            settings.UncompressedCoreJs = chbUncompressedJS.Checked;
-            settings.ExtractCs = chbExtractCS.Checked;
-            settings.ExtractAllCsSources = chbExtractAllCSSources.Checked;
-            settings.CsPath = edtCSPath.Text;
-            settings.Save();
+            _settings.Save();
             lbSavingStatus.Text = "Settings saved successfully";
         }
 
