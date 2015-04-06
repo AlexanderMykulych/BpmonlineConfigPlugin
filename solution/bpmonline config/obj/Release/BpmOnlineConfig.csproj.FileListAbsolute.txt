@@ -19,3 +19,6 @@ D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlin
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineConfig.csproj.GenerateResource.Cache
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.dll
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\StackExchange.Redis.StrongName.dll
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\StackExchange.Redis.StrongName.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\StackExchange.Redis.StrongName.xml

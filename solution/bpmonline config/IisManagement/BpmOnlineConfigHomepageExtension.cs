@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Web.Administration;
 using Microsoft.Web.Management.Client;
 using Microsoft.Web.Management.Client.Extensions;
 using Microsoft.Web.Management.Server;
@@ -33,16 +34,24 @@ namespace BpmOnlineConfig.IisManagement
 
         protected override TaskList GetTaskList(IServiceProvider serviceProvider, ModulePageInfo selectedModulePage)
         {
-            MethodTaskItemUsages usage = MethodTaskItemUsages.TaskList;
-            /*if (selectedModulePage == null)
+            var connection = (Connection)serviceProvider.GetService(typeof(Connection));
+            var serverManager = new ServerManager();
+            var siteName = connection.ConfigurationPath.SiteName;
+            var virtualPath = connection.ConfigurationPath.ApplicationPath +
+                              connection.ConfigurationPath.FolderPath;
+            BpmOnlineSite site;
+            try
             {
-                usage |= MethodTaskItemUsages.ContextMenu;
-            }*/
-            Connection connection = (Connection)serviceProvider.GetService(typeof(Connection));
+                site = new BpmOnlineSite(serverManager, siteName, virtualPath);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
             if (_lastConfigPath != connection.ConfigurationPath || _cachedTaskList == null)
             {
                 _lastConfigPath = connection.ConfigurationPath;
-                _cachedTaskList = new BpmOnlineHomepageTaskList(this, usage);
+                _cachedTaskList = new BpmOnlineHomepageTaskList(this, MethodTaskItemUsages.TaskList, site);
             }
             return _cachedTaskList;
         }

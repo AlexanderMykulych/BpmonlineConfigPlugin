@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BpmOnlineConfig.Maintenance;
 using Microsoft.Web.Management.Client;
 using Microsoft.Web.Management.Client.Win32;
 using Microsoft.Web.Management.Server;
@@ -16,20 +17,15 @@ namespace BpmOnlineConfig.IisManagement
         private BpmOnlineConfigHomepageExtension _owner;
         private BpmOnlineConfigUI _module;
         private Connection _connection;
+        private BpmOnlineSite _site;
 
-        public BpmOnlineHomepageTaskList(BpmOnlineConfigHomepageExtension owner, MethodTaskItemUsages usage)
+        public BpmOnlineHomepageTaskList(BpmOnlineConfigHomepageExtension owner, MethodTaskItemUsages usage, BpmOnlineSite site)
         {
           _usage = usage;
           _owner = owner;
+          _site = site;
           _module = _owner.Module;
           _connection = _module.Connection;
-          /*this._scope = this._owner._scope;
-          this._connection = (Connection) this._module.GetService(typeof (Connection));
-          this._currentObjectBag = new PropertyBag();
-          this._isWebSiteExpanded = true;
-          this._isWebAppExpanded = true;
-          this._isVirtualDirectoryExpanded = true;
-          this._isFileOrFolderExpanded = true;*/
         }
 
         public override ICollection GetTaskItems()
@@ -50,23 +46,18 @@ namespace BpmOnlineConfig.IisManagement
             }
             catch (Exception ex)
             {
-                IManagementUIService managementUiService = (IManagementUIService)_module.ServiceProvider.GetService(typeof(IManagementUIService));
-                if (managementUiService == null)
-                {
-                    return arrayList;
-                }
-                managementUiService.ShowError(ex, ex.Message, string.Empty, false);
+                ShowError(ex);
             }
             return arrayList;
         }
 
         private ArrayList GetSiteTaskItems()
         {
-            ArrayList arrayList = new ArrayList();
+            var arrayList = new ArrayList();
             if (_connection.IsLocalConnection)
             {
                 arrayList.Add(new TextTaskItem("Redis", "Redis", true));
-                var taskItem = new MethodTaskItem("FlushRedisTask", "Flush", "Redis", String.Empty, image: null)
+                var taskItem = new MethodTaskItem("FlushRedisTask", "Flush DB", "Redis", String.Empty, image: null)
                 {
                     Usage = _usage
                 };
@@ -75,9 +66,43 @@ namespace BpmOnlineConfig.IisManagement
             return arrayList;
         }
 
+        private void ShowError(Exception ex)
+        {
+            var managementUiService = (IManagementUIService)_module.ServiceProvider.GetService(typeof(IManagementUIService));
+            if (managementUiService == null)
+            {
+                return;
+            }
+            managementUiService.ShowError(ex, string.Empty, string.Empty, false);
+        }
+
+        private void ShowMessage(string text, string caption)
+        {
+            var managementUiService = (IManagementUIService)_module.ServiceProvider.GetService(typeof(IManagementUIService));
+            if (managementUiService == null)
+            {
+                return;
+            }
+            managementUiService.ShowMessage(text, caption);
+        }
+
         public void FlushRedisTask()
         {
-            // TODO: Flush redis here
+            try
+            {
+                using (var redis = new Redis(_site))
+                {
+                    redis.Connect();
+                    redis.FlushCurrentSiteDb();
+                    const string messageTemplate = "Server {0}. Db #{1} was succesfully flushed";
+                    var message = string.Format(messageTemplate, redis.ServerConnectionString, redis.Db);
+                    ShowMessage(message, "Flushing the Redis");
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex);
+            }
         }
     }
 }

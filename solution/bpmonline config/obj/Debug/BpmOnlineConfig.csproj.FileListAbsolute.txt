@@ -33,3 +33,6 @@ D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineC
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csproj.GenerateResource.Cache
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.dll
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\StackExchange.Redis.StrongName.dll
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\StackExchange.Redis.StrongName.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\StackExchange.Redis.StrongName.xml

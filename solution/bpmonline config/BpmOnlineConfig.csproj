@@ -47,7 +47,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\SysWOW64\inetsrv\Microsoft.Web.Management.dll</HintPath>
     </Reference>
+    <Reference Include="StackExchange.Redis.StrongName">
+      <HintPath>packages\StackExchange.Redis.StrongName.1.0.414\lib\net45\StackExchange.Redis.StrongName.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -74,6 +80,7 @@
     <Compile Include="BpmOnlineSettings.cs" />
     <Compile Include="IisManagement\BpmOnlineHomepageTaskList.cs" />
     <Compile Include="IisManagement\BpmOnlineUIModuleProvider.cs" />
+    <Compile Include="Maintenance\Redis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\Base\BooleanSetting.cs" />
     <Compile Include="Settings\Base\BaseSetting.cs" />
@@ -91,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BpmonlineConfiguration.resx">

@@ -1,2 +1,2 @@
-C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.msi
-C:\Users\k.pihalo\Google Диск\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.wixpdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.msi
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.wixpdb

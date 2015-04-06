@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Web.Administration;
 using Microsoft.Web.Management.Client;
 using Microsoft.Web.Management.Client.Extensions;
 using Microsoft.Web.Management.Server;
@@ -13,9 +14,11 @@ namespace BpmOnlineConfig.IisManagement
         protected override void Initialize(IServiceProvider serviceProvider, ModuleInfo moduleInfo)
         {
             base.Initialize(serviceProvider, moduleInfo);
+
             ServiceProvider = serviceProvider;
             Connection = (Connection)GetService(typeof(Connection));
-            IControlPanel controlPanel = (IControlPanel)GetService(typeof(IControlPanel));
+            // Register UI elements
+            var  controlPanel = (IControlPanel)GetService(typeof(IControlPanel));
             controlPanel.RegisterPage(new ModulePageInfo(this, typeof(BpmOnlineConfigUIPage),
                "Bpm'online", "Configuration of the bpm'online web site"));
             IExtensibilityManager extensibilityManager = (IExtensibilityManager)serviceProvider.GetService(typeof(IExtensibilityManager));
@@ -28,9 +31,8 @@ namespace BpmOnlineConfig.IisManagement
 
         protected override bool IsPageEnabled(ModulePageInfo pageInfo)
         {
-            Connection conn = (Connection)GetService(typeof(Connection));
-            ConfigurationPathType pt = conn.ConfigurationPath.PathType;
-            return pt == ConfigurationPathType.Site || pt == ConfigurationPathType.Application;
+            ConfigurationPathType pathType = Connection.ConfigurationPath.PathType;
+            return (pathType == ConfigurationPathType.Site) || (pathType == ConfigurationPathType.Application);
         }
     }
 }

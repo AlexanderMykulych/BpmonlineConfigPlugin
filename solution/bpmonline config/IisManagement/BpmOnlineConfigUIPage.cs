@@ -1,19 +1,20 @@
-﻿using Microsoft.Web.Administration;
+﻿using BpmOnlineConfig.IisManagement;
+using Microsoft.Web.Administration;
 using Microsoft.Web.Management.Client.Win32;
 
 namespace BpmOnlineConfig
 {
     class BpmOnlineConfigUIPage : ModulePage
     {
-        private ServerManager mgr;
-        private BpmonlineConfiguration c;
+        private ServerManager serverManager;
+        private BpmonlineConfiguration configurationWindow;
 
         public BpmOnlineConfigUIPage()
         {
-            mgr = new ServerManager();
-            c = new BpmonlineConfiguration(mgr);
+            serverManager = new ServerManager();
+            configurationWindow = new BpmonlineConfiguration(serverManager);
 
-            Controls.Add(c);
+            Controls.Add(configurationWindow);
         }
 
         protected override void OnActivated(bool initialActivation)
@@ -21,9 +22,11 @@ namespace BpmOnlineConfig
             base.OnActivated(initialActivation);
 
             if (initialActivation)
-                c.Initialize(Connection.ConfigurationPath.SiteName,
-                             Connection.ConfigurationPath.ApplicationPath +
-                             Connection.ConfigurationPath.FolderPath);
+            {
+                configurationWindow.Initialize(Connection.ConfigurationPath.SiteName,
+                    Connection.ConfigurationPath.ApplicationPath +
+                    Connection.ConfigurationPath.FolderPath);
+            }
         }
     }
 }

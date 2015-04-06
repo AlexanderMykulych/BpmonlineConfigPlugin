@@ -41,9 +41,14 @@
 	<Fragment>
 		<ComponentGroup Id="ProductComponents">
 			<Component Id="BpmOnlineSiteConfigExtention" Guid="55857611-A13E-51ED-897B-A78830F68ADC" DiskId="1" Directory="GAC">
-        <!-- Registering assembly in GAC -->
+        <!-- Registering assemblies in GAC -->
         <File Id="F_BpmOnlineSiteConfigExtention" 
               Name="BpmOnlineSiteConfigExtention.dll" Source="..\bin\Release\BpmOnlineSiteConfigExtention.dll" KeyPath="yes" Assembly=".net"/>
+                                                             <!-- Change Debug to Release if need -->
+      </Component>
+      <Component Id="StackExchange_Redis" Guid="D4CCEBA5-0B9D-4E7E-ACF2-1BB589F62473" DiskId="1" Directory="GAC">
+        <File Id="F_StackExchange_Redis"
+              Name="StackExchange.Redis.StrongName.dll" Source="..\bin\Release\StackExchange.Redis.StrongName.dll" KeyPath="yes" Assembly=".net"/>
                                                              <!-- Change Debug to Release if need -->
       </Component>
       <Component Id="BpmOnlineSiteConfigExtention_XMLReg" Guid="55857611-A13E-51ED-897B-A78830F69ADC" DiskId="1" Win64="yes" Directory="WindowsFolder">
