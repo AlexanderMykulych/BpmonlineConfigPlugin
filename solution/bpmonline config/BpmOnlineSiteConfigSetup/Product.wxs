@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
-     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Product Id="*" Name="Bpm'online Site Configuration Extention" Language="1033" Version="1.0.0.0" Manufacturer="Config tools Inc." UpgradeCode="e934c3f0-8eb9-4a5a-86f3-edee317b0506">
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+	<Product Id="*" Name="Bpm'online Site Configuration Extention" Language="1033" Version="1.1.0.0" Manufacturer="Config tools Inc." UpgradeCode="e934c3f0-8eb9-4a5a-86f3-edee317b0506">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+    <PropertyRef Id="NETFRAMEWORK35"/>
     <Upgrade Id="e934c3f0-8eb9-4a5a-86f3-edee317b0506">  
        <UpgradeVersion
           Minimum="1.0.0.0" Maximum="99.0.0.0"
@@ -23,6 +25,10 @@
       <!-- Uninstall previous version before installing this one. -->
       <RemoveExistingProducts After="InstallInitialize"/>
     </InstallExecuteSequence>
+
+    <Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK35]]>
+    </Condition>
 
 	</Product>
   
@@ -46,9 +52,9 @@
               Name="BpmOnlineSiteConfigExtention.dll" Source="..\bin\Release\BpmOnlineSiteConfigExtention.dll" KeyPath="yes" Assembly=".net"/>
                                                              <!-- Change Debug to Release if need -->
       </Component>
-      <Component Id="StackExchange_Redis" Guid="D4CCEBA5-0B9D-4E7E-ACF2-1BB589F62473" DiskId="1" Directory="GAC">
-        <File Id="F_StackExchange_Redis"
-              Name="StackExchange.Redis.StrongName.dll" Source="..\bin\Release\StackExchange.Redis.StrongName.dll" KeyPath="yes" Assembly=".net"/>
+      <Component Id="ServiceStack_Redis" Guid="D4CCEBA5-0B9D-4E7E-ACF2-1BB589F62473" DiskId="1" Directory="GAC">
+        <File Id="F_ServiceStack_Redis"
+              Name="ServiceStack.Redis.dll" Source="..\bin\Release\ServiceStack.Redis.dll" KeyPath="yes" Assembly=".net"/>
                                                              <!-- Change Debug to Release if need -->
       </Component>
       <Component Id="BpmOnlineSiteConfigExtention_XMLReg" Guid="55857611-A13E-51ED-897B-A78830F69ADC" DiskId="1" Win64="yes" Directory="WindowsFolder">
@@ -73,7 +79,7 @@
                         File="[WindowsFolder]system32\inetsrv\config\administration.config"
                         ElementPath="adminModuleProvider"
                         Name="type"
-                        Value="BpmOnlineConfig.IisManagement.BpmOnlineUIModuleProvider, BpmOnlineSiteConfigExtention, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22cf30641e826faa"
+                        Value="BpmOnlineConfig.IisManagement.BpmOnlineUIModuleProvider, BpmOnlineSiteConfigExtention, Version=1.1.0.0, Culture=neutral, PublicKeyToken=22cf30641e826faa"
                         Sequence="3" />
 
         <util:XmlConfig Id ="removeAdminModuleProvider"

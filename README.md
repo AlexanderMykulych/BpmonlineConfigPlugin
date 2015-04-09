@@ -1,7 +1,7 @@
 # BpmonlineConfigPlugin
 IIS Manager extention for configuring bpm'online web site settings
 
-Here is the main settings available in current version:
+Here is the main settings available in the current version:
 
 Common settings:
  - Session time-out;
@@ -17,3 +17,5 @@ CS sources section:
  - Extract *.cs sources;
  - Path (cs sources);
  - Always extract all sources;
+
++ver1.1: Flush redis action

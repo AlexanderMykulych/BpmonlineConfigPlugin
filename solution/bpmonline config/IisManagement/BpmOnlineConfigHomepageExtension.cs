@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Web.Administration;
 using Microsoft.Web.Management.Client;
 using Microsoft.Web.Management.Client.Extensions;
@@ -45,6 +44,10 @@ namespace BpmOnlineConfig.IisManagement
                 site = new BpmOnlineSite(serverManager, siteName, virtualPath);
             }
             catch (Exception ex)
+            {
+                return null;
+            }
+            if (site.ConnectionStringsConfig == null)
             {
                 return null;
             }

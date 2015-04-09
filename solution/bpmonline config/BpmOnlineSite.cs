@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using BpmOnlineConfig.Settings;
@@ -38,6 +39,10 @@ namespace BpmOnlineConfig
                     return;
                 }
                 var siteRootPath = GetApplicationPhisicalPath(rootApplication);
+                if (!File.Exists(siteRootPath + @"\Web.config"))
+                {
+                    return;
+                }
                 SiteConfig = new ConfigFile(siteRootPath, "Web.config");
                 ConnectionStringsConfig = new ConfigFile(siteRootPath, "ConnectionStrings.config");
                 BpmonlineApplication = site.Applications.FirstOrDefault(a => a.Path != "/");

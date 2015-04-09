@@ -26,6 +26,8 @@ namespace BpmOnlineConfig.IisManagement
             {
                 var homePageExtention = new BpmOnlineConfigHomepageExtension(this);
                 extensibilityManager.RegisterExtension(typeof(IHomepageTaskListProvider), homePageExtention);
+                var hierarchyProvider = new BpmOnlineConfigHierarchyProvider(this);
+                extensibilityManager.RegisterExtension(typeof(HierarchyProvider), (object)hierarchyProvider);
             }
         }
 

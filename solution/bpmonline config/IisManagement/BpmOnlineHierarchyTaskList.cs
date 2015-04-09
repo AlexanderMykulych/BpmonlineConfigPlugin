@@ -3,59 +3,30 @@ using System.Collections;
 using BpmOnlineConfig.Maintenance;
 using Microsoft.Web.Management.Client;
 using Microsoft.Web.Management.Client.Win32;
-using Microsoft.Web.Management.Server;
 
 namespace BpmOnlineConfig.IisManagement
 {
-    class BpmOnlineHomepageTaskList : TaskList
+    class BpmOnlineHierarchyTaskList : TaskList
     {
-        private MethodTaskItemUsages _usage;
-        private BpmOnlineConfigHomepageExtension _owner;
         private BpmOnlineConfigUI _module;
-        private Connection _connection;
         private BpmOnlineSite _site;
 
-        public BpmOnlineHomepageTaskList(BpmOnlineConfigHomepageExtension owner, MethodTaskItemUsages usage, BpmOnlineSite site)
+        public BpmOnlineHierarchyTaskList(BpmOnlineConfigUI module, BpmOnlineSite site)
         {
-          _usage = usage;
-          _owner = owner;
           _site = site;
-          _module = _owner.Module;
-          _connection = _module.Connection;
+          _module = module;
         }
 
         public override ICollection GetTaskItems()
         {
+            Connection connection = (Connection)this._module.ServiceProvider.GetService(typeof(Connection));
             var arrayList = new ArrayList();
-            try
+            if (connection.IsLocalConnection)
             {
-                switch (_connection.ConfigurationPath.PathType)
+                //arrayList.Add(new TextTaskItem("Redis", "Redis", true));
+                var taskItem = new MethodTaskItem("FlushRedisTask", "Flush Redis", "Browse", String.Empty, image: null)
                 {
-                    case ConfigurationPathType.Server:
-                        break;
-                    case ConfigurationPathType.Site:
-                        arrayList = GetSiteTaskItems();
-                        break;
-                    case ConfigurationPathType.Application:
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                ShowError(ex);
-            }
-            return arrayList;
-        }
-
-        private ArrayList GetSiteTaskItems()
-        {
-            var arrayList = new ArrayList();
-            if (_connection.IsLocalConnection)
-            {
-                arrayList.Add(new TextTaskItem("Redis", "Redis", true));
-                var taskItem = new MethodTaskItem("FlushRedisTask", "Flush DB", "Redis", String.Empty, image: null)
-                {
-                    Usage = _usage
+                    Usage = MethodTaskItemUsages.ContextMenu
                 };
                 arrayList.Add(taskItem);
             }

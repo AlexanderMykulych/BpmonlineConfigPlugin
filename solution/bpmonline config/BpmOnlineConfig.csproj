@@ -31,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -47,10 +48,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\SysWOW64\inetsrv\Microsoft.Web.Management.dll</HintPath>
     </Reference>
-    <Reference Include="StackExchange.Redis.StrongName">
-      <HintPath>packages\StackExchange.Redis.StrongName.1.0.414\lib\net45\StackExchange.Redis.StrongName.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <Private>True</Private>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\ServiceStack.Redis\Signed\ServiceStack.Redis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -59,13 +58,13 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BpmOnlineSite.cs" />
     <Compile Include="ConfigFile.cs" />
+    <Compile Include="IisManagement\BpmOnlineConfigHierarchyProvider.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigHomepageExtension.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigUI.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigUIPage.cs">
@@ -78,6 +77,7 @@
       <DependentUpon>BpmonlineConfiguration.cs</DependentUpon>
     </Compile>
     <Compile Include="BpmOnlineSettings.cs" />
+    <Compile Include="IisManagement\BpmOnlineHierarchyTaskList.cs" />
     <Compile Include="IisManagement\BpmOnlineHomepageTaskList.cs" />
     <Compile Include="IisManagement\BpmOnlineUIModuleProvider.cs" />
     <Compile Include="Maintenance\Redis.cs" />

@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Web.Administration;
+using Microsoft.Web.Management.Client;
+
+namespace BpmOnlineConfig.IisManagement
+{
+    class BpmOnlineConfigHierarchyProvider : HierarchyProvider
+    {
+        private BpmOnlineConfigUI _owner;
+
+        public BpmOnlineConfigHierarchyProvider(BpmOnlineConfigUI owner)
+          : base((IServiceProvider) owner)
+        {
+            _owner = owner;
+        }
+
+        public override TaskList GetTasks(HierarchyInfo item)
+        {
+            if (string.Equals(item.NodeType, HierarchyInfo.ServerConnection, StringComparison.Ordinal))
+            {
+                // Server task list   
+            }
+            if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal))
+            {
+                var serverManager = new ServerManager();
+                BpmOnlineSite site;
+                try
+                {
+                    site = new BpmOnlineSite(serverManager, item.Text, string.Empty);
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+                if (site.ConnectionStringsConfig == null)
+                {
+                    return null;
+                }
+                return (TaskList)new BpmOnlineHierarchyTaskList(_owner, site); 
+            }
+            if (string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal))
+            {
+                // Application task list
+            }
+            return (TaskList) null;
+        }
+
+        public override HierarchyInfo[] GetChildren(HierarchyInfo item)
+        {
+            return (HierarchyInfo[])null;
+        }
+    }
+}

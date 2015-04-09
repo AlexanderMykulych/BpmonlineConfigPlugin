@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.Web.Administration;
-using StackExchange.Redis;
+using ServiceStack.Redis;
 
 namespace BpmOnlineConfig.Maintenance
 {
@@ -14,7 +8,8 @@ namespace BpmOnlineConfig.Maintenance
     {
         #region Private: Fields
         private BpmOnlineSite _site;
-        private ConnectionMultiplexer _connectionMultiplexer; 
+        //private ConnectionMultiplexer _connectionMultiplexer; 
+        private RedisClient _redisClient;
         #endregion
 
         #region Public: Properties
@@ -48,22 +43,24 @@ namespace BpmOnlineConfig.Maintenance
                 Db = dbMatch.Groups[1].Value;
             }
             ServerConnectionString = !string.IsNullOrEmpty(Port) ? Host + ":" + Port : Host;
-            _connectionMultiplexer = ConnectionMultiplexer.Connect(ServerConnectionString + ",allowAdmin=true");
+            _redisClient = new RedisClient(Host, Convert.ToInt32(Port))
+            {
+                Db = Convert.ToInt32(Db)
+            };
+            //_connectionMultiplexer = ConnectionMultiplexer.Connect(ServerConnectionString + ",allowAdmin=true");
         }
 
         public void FlushCurrentSiteDb()
         {
-            var endpoints = _connectionMultiplexer.GetEndPoints(true);
-            foreach (var endpoint in endpoints)
-            {
-                var server = _connectionMultiplexer.GetServer(endpoint);
-                server.FlushDatabase(Convert.ToInt32(Db));
-            }
+            _redisClient.FlushDb();
         }
 
         public void Dispose()
         {
-            _connectionMultiplexer.Dispose();
+            if (_redisClient != null)
+            {
+                _redisClient.Dispose();
+            }
         }
     }
 }
