@@ -8,7 +8,6 @@ namespace BpmOnlineConfig.Maintenance
     {
         #region Private: Fields
         private BpmOnlineSite _site;
-        //private ConnectionMultiplexer _connectionMultiplexer; 
         private RedisClient _redisClient;
         #endregion
 
@@ -26,28 +25,16 @@ namespace BpmOnlineConfig.Maintenance
 
         public void Connect()
         {
-            var connectionString = _site.ConnectionStringsConfig.GetConfigParameterValue("add[@name=\"redis\"]", "connectionString").ToString();
-            var hostMatch = Regex.Match(connectionString, @"host=([A-Za-z0-9_.]+)", RegexOptions.IgnoreCase);
-            if (hostMatch.Success)
-            {
-                Host = hostMatch.Groups[1].Value;
-            }
-            var portMatch = Regex.Match(connectionString, @"port=([A-Za-z0-9_.]+)", RegexOptions.IgnoreCase);
-            if (portMatch.Success)
-            {
-                Port = portMatch.Groups[1].Value;
-            }
-            var dbMatch = Regex.Match(connectionString, @"db=([A-Za-z0-9_.]+)", RegexOptions.IgnoreCase);
-            if (dbMatch.Success)
-            {
-                Db = dbMatch.Groups[1].Value;
-            }
+            var connectionStringText = _site.ConnectionStringsConfig.GetConfigParameterValue("add[@name=\"redis\"]", "connectionString").ToString();
+            var connectionString = new ConnectionString(connectionStringText);
+            Host = connectionString.GetAttribute("host");
+            Port = connectionString.GetAttribute("port");
+            Db = connectionString.GetAttribute("db");
             ServerConnectionString = !string.IsNullOrEmpty(Port) ? Host + ":" + Port : Host;
             _redisClient = new RedisClient(Host, Convert.ToInt32(Port))
             {
                 Db = Convert.ToInt32(Db)
             };
-            //_connectionMultiplexer = ConnectionMultiplexer.Connect(ServerConnectionString + ",allowAdmin=true");
         }
 
         public void FlushCurrentSiteDb()

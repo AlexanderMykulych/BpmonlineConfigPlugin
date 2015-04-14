@@ -21,4 +21,3 @@ D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlin
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.pdb
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.dll.CodeAnalysisLog.xml
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.dll.lastcodeanalysissucceeded
-D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\ServiceStack.Redis.dll

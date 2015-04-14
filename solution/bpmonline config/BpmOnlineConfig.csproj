@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="BpmOnlineSite.cs" />
     <Compile Include="ConfigFile.cs" />
+    <Compile Include="ConnectionString.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigHierarchyProvider.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigHomepageExtension.cs" />
     <Compile Include="IisManagement\BpmOnlineConfigUI.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="IisManagement\BpmOnlineUIModuleProvider.cs" />
     <Compile Include="Maintenance\Redis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\ApplicationName.cs" />
     <Compile Include="Settings\Base\BooleanSetting.cs" />
     <Compile Include="Settings\Base\BaseSetting.cs" />
     <Compile Include="Settings\CsPath.cs" />
@@ -90,7 +92,9 @@
     <Compile Include="Settings\ExtractJs.cs" />
     <Compile Include="Settings\Base\IntegerSetting.cs" />
     <Compile Include="Settings\JsPath.cs" />
+    <Compile Include="Settings\LogPath.cs" />
     <Compile Include="Settings\MaxEntityNameLength.cs" />
+    <Compile Include="Settings\SchedulerDb.cs" />
     <Compile Include="Settings\SessionTimeOutMinutes.cs" />
     <Compile Include="Settings\Base\TextSetting.cs" />
     <Compile Include="Settings\UncompressedCoreJs.cs" />

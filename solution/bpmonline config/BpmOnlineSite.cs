@@ -20,6 +20,7 @@ namespace BpmOnlineConfig
         public ConfigFile SiteConfig { get; set; }
         public ConfigFile ApplicationConfig { get; set; }
         public ConfigFile ConnectionStringsConfig { get; set; }
+        public ConfigFile Log4NetConfig { get; set; }
 
         #endregion
 
@@ -49,6 +50,7 @@ namespace BpmOnlineConfig
                 if (BpmonlineApplication != null)
                 {
                     ApplicationConfig = new ConfigFile(GetApplicationPhisicalPath(BpmonlineApplication), "Web.config");
+                    Log4NetConfig = new ConfigFile(GetApplicationPhisicalPath(BpmonlineApplication), "log4net.config");
                 }
             }
         } 

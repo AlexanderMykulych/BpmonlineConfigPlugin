@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Tracing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml;
@@ -19,8 +20,17 @@ namespace BpmOnlineConfig
             {
                 return null;
             }
-            var parentSectionXPath = sectionXPath.Substring(0, sectionXPath.LastIndexOf('/'));
-            var parentNode = root.SelectSingleNode(parentSectionXPath);
+            XmlNode parentNode;
+            var slashIndex = sectionXPath.LastIndexOf('/');
+            if (slashIndex < 0)
+            {
+                parentNode = root;
+            }
+            else
+            {
+                var parentSectionXPath = sectionXPath.Substring(0, sectionXPath.LastIndexOf('/'));
+                parentNode = root.SelectSingleNode(parentSectionXPath);
+            }
             if (parentNode == null)
             {
                 return null;
@@ -48,19 +58,9 @@ namespace BpmOnlineConfig
             return newNode;
         }
 
-        #region Public: Methods
-        public ConfigFile(string path, string fileName)
-        {
-            file = new XmlDocument();
-            fullFileName = Path.Combine(path, fileName);
-            file.Load(fullFileName);
-            root = file.DocumentElement;
-        }
-
-        public void SetConfigParameterValue(string sectionXPath, string attributeName,
+        private void SetNodeAttibuteValue(string sectionXPath, XmlNode node, string attributeName,
             Object value, bool createIfNotExists = false)
         {
-            XmlNode node = root.SelectSingleNode(sectionXPath);
             if (node == null)
             {
                 if (createIfNotExists)
@@ -85,6 +85,22 @@ namespace BpmOnlineConfig
             changed = true;
         }
 
+        #region Public: Methods
+        public ConfigFile(string path, string fileName)
+        {
+            file = new XmlDocument();
+            fullFileName = Path.Combine(path, fileName);
+            file.Load(fullFileName);
+            root = file.DocumentElement;
+        }
+
+        public void SetConfigParameterValue(string sectionXPath, string attributeName,
+            Object value, bool createIfNotExists = false)
+        {
+            XmlNode node = root.SelectSingleNode(sectionXPath);
+            SetNodeAttibuteValue(sectionXPath, node, attributeName, value, createIfNotExists);
+        }
+
         public object GetConfigParameterValue(string sectionXPath, string attributeName)
         {
             XmlNode node = root.SelectSingleNode(sectionXPath);
@@ -99,6 +115,20 @@ namespace BpmOnlineConfig
             return (node == null) ? null : node.Attributes[attributeName].Value;
         }
 
+        public void SetConfigParametersValue(string sectionXPath, string attributeName,
+            Object value, bool createIfNotExists = false)
+        {
+            XmlNodeList nodes = root.SelectNodes(sectionXPath);
+            if ((nodes == null) || (nodes.Count == 0))
+            {
+                return;
+            }
+            foreach (XmlNode node in nodes)
+            {
+                SetNodeAttibuteValue(sectionXPath, node, attributeName, value, createIfNotExists);    
+            }
+        }
+
         public void Save()
         {
             if (changed)
@@ -107,5 +137,16 @@ namespace BpmOnlineConfig
             }
         } 
         #endregion
+
+        internal void RemoveConfigSection(string sectionXPath)
+        {
+            XmlNode node = file.SelectSingleNode(sectionXPath);
+            if ((node == null) || (node.ParentNode == null))
+            {
+                return;
+            }
+            node.ParentNode.RemoveChild(node);
+            changed = true;
+        }
     }
 }

@@ -53,6 +53,10 @@ namespace BpmOnlineConfig
             {
                 Site.ConnectionStringsConfig.Save();
             }
+            if (Site.Log4NetConfig != null)
+            {
+                Site.Log4NetConfig.Save();
+            }
         }
 
         public void Show()

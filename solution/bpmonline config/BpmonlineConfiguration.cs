@@ -39,6 +39,9 @@ namespace BpmOnlineConfig
             settings.Add(new ExtractCs(chbExtractCS));
             settings.Add(new ExtractAllCsSources(chbExtractAllCSSources));
             settings.Add(new CsPath(edtCSPath));
+            settings.Add(new LogPath(edtLogPath));
+            settings.Add(new ApplicationName(edtApplicatinName));
+            settings.Add(new SchedulerDb(chbSchedulerDb));
         }
 
         private void UpdateControlsByExtractJSFlug()
@@ -56,10 +59,10 @@ namespace BpmOnlineConfig
             btnBrowseCSPath.Enabled = isChecked;
         }
 
-        private static string GetSelectedPath(string path)
+        private static string GetSelectedPath(string path, string defaultEnding)
         {
             path = path.TrimEnd('\\');
-            return path + @"\%WORKSPACE%";
+            return path + defaultEnding;
         }
 
         private static string GetPathForBrowserDialog(string path)
@@ -97,7 +100,7 @@ namespace BpmOnlineConfig
             folderBrowserDialog.SelectedPath = GetPathForBrowserDialog(edtJSPath.Text);
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                edtJSPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath);
+                edtJSPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath, @"\%WORKSPACE%");
             }
         }
 
@@ -106,9 +109,18 @@ namespace BpmOnlineConfig
             folderBrowserDialog.SelectedPath = GetPathForBrowserDialog(edtCSPath.Text);
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                edtCSPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath);
+                edtCSPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath, @"\%WORKSPACE%");
             }
-        } 
+        }
+
+        private void btnBrowseLogPath_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog.SelectedPath = GetPathForBrowserDialog(edtLogPath.Text);
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                edtLogPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath, @"%AspNet{ApplicationPath}\Log\");
+            }
+        }
 
         #endregion
         
