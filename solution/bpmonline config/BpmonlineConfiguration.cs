@@ -42,6 +42,9 @@ namespace BpmOnlineConfig
             settings.Add(new LogPath(edtLogPath));
             settings.Add(new ApplicationName(edtApplicatinName));
             settings.Add(new SchedulerDb(chbSchedulerDb));
+            settings.Add(new UseFlatPackage(chbUseFlatPackage));
+            settings.Add(new UsePackageVersions(chbUsePackageVersions));
+            settings.Add(new DefPackagesWorkingCopyPath(edtDefPackagesWorkingCopyPath));
         }
 
         private void UpdateControlsByExtractJSFlug()
@@ -122,7 +125,16 @@ namespace BpmOnlineConfig
             }
         }
 
+        private void btnBrowseDefPackagesWorkingCopyPath_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog.SelectedPath = GetPathForBrowserDialog(edtDefPackagesWorkingCopyPath.Text);
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                edtDefPackagesWorkingCopyPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath, @"\%WORKSPACE%");
+            }
+        }
+
         #endregion
-        
+
     }
 }

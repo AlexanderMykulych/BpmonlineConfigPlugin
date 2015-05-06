@@ -58,18 +58,25 @@
             this.btnBrowseLogPath = new System.Windows.Forms.Button();
             this.edtLogPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.chbUsePackageVersions = new System.Windows.Forms.CheckBox();
+            this.chbUseFlatPackage = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnBrowseDefPackagesWorkingCopyPath = new System.Windows.Forms.Button();
+            this.edtDefPackagesWorkingCopyPath = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.edtSessionTimeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaxEntityNameLength)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(17, 357);
+            this.btnSave.Location = new System.Drawing.Point(17, 461);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 34);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -261,7 +268,7 @@
             // 
             this.lbSavingStatus.AutoSize = true;
             this.lbSavingStatus.ForeColor = System.Drawing.Color.LightGreen;
-            this.lbSavingStatus.Location = new System.Drawing.Point(98, 362);
+            this.lbSavingStatus.Location = new System.Drawing.Point(98, 472);
             this.lbSavingStatus.Name = "lbSavingStatus";
             this.lbSavingStatus.Size = new System.Drawing.Size(0, 13);
             this.lbSavingStatus.TabIndex = 10;
@@ -331,8 +338,69 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Path";
             // 
+            // chbUsePackageVersions
+            // 
+            this.chbUsePackageVersions.AutoSize = true;
+            this.chbUsePackageVersions.Location = new System.Drawing.Point(10, 24);
+            this.chbUsePackageVersions.Name = "chbUsePackageVersions";
+            this.chbUsePackageVersions.Size = new System.Drawing.Size(134, 17);
+            this.chbUsePackageVersions.TabIndex = 15;
+            this.chbUsePackageVersions.Text = "Use Package Versions";
+            this.chbUsePackageVersions.UseVisualStyleBackColor = true;
+            // 
+            // chbUseFlatPackage
+            // 
+            this.chbUseFlatPackage.AutoSize = true;
+            this.chbUseFlatPackage.Location = new System.Drawing.Point(246, 24);
+            this.chbUseFlatPackage.Name = "chbUseFlatPackage";
+            this.chbUseFlatPackage.Size = new System.Drawing.Size(111, 17);
+            this.chbUseFlatPackage.TabIndex = 16;
+            this.chbUseFlatPackage.Text = "Use Flat Package";
+            this.chbUseFlatPackage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnBrowseDefPackagesWorkingCopyPath);
+            this.groupBox4.Controls.Add(this.chbUseFlatPackage);
+            this.groupBox4.Controls.Add(this.edtDefPackagesWorkingCopyPath);
+            this.groupBox4.Controls.Add(this.chbUsePackageVersions);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Location = new System.Drawing.Point(17, 357);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(631, 86);
+            this.groupBox4.TabIndex = 17;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Packages Settings (ver 7.5 and higher)";
+            // 
+            // btnBrowseDefPackagesWorkingCopyPath
+            // 
+            this.btnBrowseDefPackagesWorkingCopyPath.Location = new System.Drawing.Point(597, 47);
+            this.btnBrowseDefPackagesWorkingCopyPath.Name = "btnBrowseDefPackagesWorkingCopyPath";
+            this.btnBrowseDefPackagesWorkingCopyPath.Size = new System.Drawing.Size(28, 24);
+            this.btnBrowseDefPackagesWorkingCopyPath.TabIndex = 3;
+            this.btnBrowseDefPackagesWorkingCopyPath.Text = "...";
+            this.btnBrowseDefPackagesWorkingCopyPath.UseVisualStyleBackColor = true;
+            this.btnBrowseDefPackagesWorkingCopyPath.Click += new System.EventHandler(this.btnBrowseDefPackagesWorkingCopyPath_Click);
+            // 
+            // edtDefPackagesWorkingCopyPath
+            // 
+            this.edtDefPackagesWorkingCopyPath.Location = new System.Drawing.Point(216, 47);
+            this.edtDefPackagesWorkingCopyPath.Name = "edtDefPackagesWorkingCopyPath";
+            this.edtDefPackagesWorkingCopyPath.Size = new System.Drawing.Size(375, 20);
+            this.edtDefPackagesWorkingCopyPath.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(187, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Default Packages Working Copy Path";
+            // 
             // BpmonlineConfiguration
             // 
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.chbSchedulerDb);
             this.Controls.Add(this.label4);
@@ -348,7 +416,7 @@
             this.Controls.Add(this.edtSessionTimeOut);
             this.Controls.Add(this.btnSave);
             this.Name = "BpmonlineConfiguration";
-            this.Size = new System.Drawing.Size(670, 476);
+            this.Size = new System.Drawing.Size(670, 520);
             ((System.ComponentModel.ISupportInitialize)(this.edtSessionTimeOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaxEntityNameLength)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -357,6 +425,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,5 +463,11 @@
         private System.Windows.Forms.Button btnBrowseLogPath;
         private System.Windows.Forms.TextBox edtLogPath;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox chbUsePackageVersions;
+        private System.Windows.Forms.CheckBox chbUseFlatPackage;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnBrowseDefPackagesWorkingCopyPath;
+        private System.Windows.Forms.TextBox edtDefPackagesWorkingCopyPath;
+        private System.Windows.Forms.Label label6;
     }
 }
