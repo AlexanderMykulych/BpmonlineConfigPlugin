@@ -25,7 +25,8 @@ namespace BpmOnlineConfig.Settings
 
         public override string Read()
         {
-            return Site.ApplicationConfig.GetConfigParameterValue("terrasoft/wsService", "defaultPort").ToString();
+            var port = Site.ApplicationConfig.GetConfigParameterValue("terrasoft/wsService", "defaultPort");
+            return (port == null) ? null : port.ToString();
         }
 
         public override void Save()

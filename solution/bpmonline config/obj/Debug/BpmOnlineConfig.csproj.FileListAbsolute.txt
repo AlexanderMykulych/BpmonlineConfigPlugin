@@ -33,3 +33,11 @@ D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineC
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csproj.GenerateResource.Cache
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.dll
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.pdb
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\BpmOnlineSiteConfigExtention.dll
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\BpmOnlineSiteConfigExtention.pdb
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\ServiceStack.Redis.dll
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csprojResolveAssemblyReference.cache
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.BpmonlineConfiguration.resources
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csproj.GenerateResource.Cache
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.dll
+c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.pdb
