@@ -41,3 +41,4 @@ c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineC
 c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineConfig.csproj.GenerateResource.Cache
 c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.dll
 c:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Debug\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\bin\Debug\ServiceStack.Redis.dll

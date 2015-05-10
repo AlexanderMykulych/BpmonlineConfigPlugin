@@ -102,6 +102,7 @@
     <Compile Include="Settings\UncompressedCoreJs.cs" />
     <Compile Include="Settings\UseFlatPackage.cs" />
     <Compile Include="Settings\UsePackageVersions.cs" />
+    <Compile Include="Settings\UseSvn.cs" />
     <Compile Include="Settings\WebSocketsPort.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -64,6 +64,7 @@
             this.btnBrowseDefPackagesWorkingCopyPath = new System.Windows.Forms.Button();
             this.edtDefPackagesWorkingCopyPath = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.chbUseSvn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.edtSessionTimeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaxEntityNameLength)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -99,9 +100,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.Size = new System.Drawing.Size(130, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Session Time-out (minutes)";
+            this.label1.Text = "Session Timeout (minutes)";
             // 
             // edtWebSocketsPort
             // 
@@ -117,9 +118,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(24, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Web-sockets Port";
+            this.label2.Text = "WebSockets Port";
             // 
             // edtMaxEntityNameLength
             // 
@@ -134,9 +135,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(24, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 13);
+            this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Max entity name Length";
+            this.label3.Text = "Max Entity Name Length";
             // 
             // groupBox1
             // 
@@ -150,16 +151,16 @@
             this.groupBox1.Size = new System.Drawing.Size(631, 89);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Java Script sources";
+            this.groupBox1.Text = "Javascript sources";
             // 
             // chbUncompressedJS
             // 
             this.chbUncompressedJS.AutoSize = true;
             this.chbUncompressedJS.Location = new System.Drawing.Point(127, 28);
             this.chbUncompressedJS.Name = "chbUncompressedJS";
-            this.chbUncompressedJS.Size = new System.Drawing.Size(136, 17);
+            this.chbUncompressedJS.Size = new System.Drawing.Size(137, 17);
             this.chbUncompressedJS.TabIndex = 4;
-            this.chbUncompressedJS.Text = "Uncompressed JS core";
+            this.chbUncompressedJS.Text = "Uncompressed JS Core";
             this.chbUncompressedJS.UseVisualStyleBackColor = true;
             // 
             // edtJSPath
@@ -252,10 +253,11 @@
             this.chbExtractAllCSSources.AutoSize = true;
             this.chbExtractAllCSSources.Location = new System.Drawing.Point(127, 25);
             this.chbExtractAllCSSources.Name = "chbExtractAllCSSources";
-            this.chbExtractAllCSSources.Size = new System.Drawing.Size(147, 17);
+            this.chbExtractAllCSSources.Size = new System.Drawing.Size(151, 17);
             this.chbExtractAllCSSources.TabIndex = 4;
-            this.chbExtractAllCSSources.Text = "Always extract all sources";
+            this.chbExtractAllCSSources.Text = "Always Extract All Sources";
             this.chbExtractAllCSSources.UseVisualStyleBackColor = true;
+            this.chbExtractAllCSSources.CheckedChanged += new System.EventHandler(this.chbExtractAllCSSources_CheckedChanged);
             // 
             // edtCSPath
             // 
@@ -310,7 +312,7 @@
             this.groupBox3.Size = new System.Drawing.Size(631, 68);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Loging";
+            this.groupBox3.Text = "Logging";
             // 
             // btnBrowseLogPath
             // 
@@ -341,7 +343,7 @@
             // chbUsePackageVersions
             // 
             this.chbUsePackageVersions.AutoSize = true;
-            this.chbUsePackageVersions.Location = new System.Drawing.Point(10, 24);
+            this.chbUsePackageVersions.Location = new System.Drawing.Point(174, 24);
             this.chbUsePackageVersions.Name = "chbUsePackageVersions";
             this.chbUsePackageVersions.Size = new System.Drawing.Size(134, 17);
             this.chbUsePackageVersions.TabIndex = 15;
@@ -351,7 +353,7 @@
             // chbUseFlatPackage
             // 
             this.chbUseFlatPackage.AutoSize = true;
-            this.chbUseFlatPackage.Location = new System.Drawing.Point(246, 24);
+            this.chbUseFlatPackage.Location = new System.Drawing.Point(358, 24);
             this.chbUseFlatPackage.Name = "chbUseFlatPackage";
             this.chbUseFlatPackage.Size = new System.Drawing.Size(111, 17);
             this.chbUseFlatPackage.TabIndex = 16;
@@ -360,6 +362,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chbUseSvn);
             this.groupBox4.Controls.Add(this.btnBrowseDefPackagesWorkingCopyPath);
             this.groupBox4.Controls.Add(this.chbUseFlatPackage);
             this.groupBox4.Controls.Add(this.edtDefPackagesWorkingCopyPath);
@@ -397,6 +400,16 @@
             this.label6.Size = new System.Drawing.Size(187, 13);
             this.label6.TabIndex = 1;
             this.label6.Text = "Default Packages Working Copy Path";
+            // 
+            // chbUseSvn
+            // 
+            this.chbUseSvn.AutoSize = true;
+            this.chbUseSvn.Location = new System.Drawing.Point(10, 24);
+            this.chbUseSvn.Name = "chbUseSvn";
+            this.chbUseSvn.Size = new System.Drawing.Size(70, 17);
+            this.chbUseSvn.TabIndex = 18;
+            this.chbUseSvn.Text = "Use SVN";
+            this.chbUseSvn.UseVisualStyleBackColor = true;
             // 
             // BpmonlineConfiguration
             // 
@@ -469,5 +482,6 @@
         private System.Windows.Forms.Button btnBrowseDefPackagesWorkingCopyPath;
         private System.Windows.Forms.TextBox edtDefPackagesWorkingCopyPath;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chbUseSvn;
     }
 }

@@ -45,6 +45,7 @@ namespace BpmOnlineConfig
             settings.Add(new UseFlatPackage(chbUseFlatPackage));
             settings.Add(new UsePackageVersions(chbUsePackageVersions));
             settings.Add(new DefPackagesWorkingCopyPath(edtDefPackagesWorkingCopyPath));
+            settings.Add(new UseSvn(chbUseSvn));
         }
 
         private void UpdateControlsByExtractJSFlug()
@@ -135,6 +136,11 @@ namespace BpmOnlineConfig
         }
 
         #endregion
+
+        private void chbExtractAllCSSources_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

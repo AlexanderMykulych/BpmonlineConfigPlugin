@@ -26,9 +26,9 @@ namespace BpmOnlineConfig.Settings
 
         public override bool Read()
         {
-            var extractAllCompilerSources = Site.ApplicationConfig.GetConfigParameterValue("appSettings/add[@key=\"UseFlatPackage\"]",
+            var value = Site.ApplicationConfig.GetConfigParameterValue("appSettings/add[@key=\"UseFlatPackage\"]",
                     "value");
-            return (extractAllCompilerSources != null) && Convert.ToBoolean(extractAllCompilerSources);
+            return (value != null) && Convert.ToBoolean(value);
         }
 
         public override void Save()

@@ -4,7 +4,7 @@ using BpmOnlineConfig.Settings.Base;
 
 namespace BpmOnlineConfig.Settings
 {
-    class UsePackageVersions : BooleanSetting
+    class UseSvn : BooleanSetting
     {
         public override bool IsAvailable
         {
@@ -22,11 +22,11 @@ namespace BpmOnlineConfig.Settings
             }
         }
 
-        public UsePackageVersions(CheckBox control) : base(control) { }
+        public UseSvn(CheckBox control) : base(control) { }
 
         public override bool Read()
         {
-            var value = Site.ApplicationConfig.GetConfigParameterValue("appSettings/add[@key=\"UsePackageVersions\"]",
+            var value = Site.ApplicationConfig.GetConfigParameterValue("appSettings/add[@key=\"UseSvn\"]",
                     "value");
             return (value != null) && Convert.ToBoolean(value);
         }
@@ -37,7 +37,7 @@ namespace BpmOnlineConfig.Settings
             {
                 return;
             }
-            Site.ApplicationConfig.SetConfigParameterValue("appSettings/add[@key=\"UsePackageVersions\"]", "value", ControlValue);
+            Site.ApplicationConfig.SetConfigParameterValue("appSettings/add[@key=\"UseSvn\"]", "value", ControlValue);
         }
     }
 }
