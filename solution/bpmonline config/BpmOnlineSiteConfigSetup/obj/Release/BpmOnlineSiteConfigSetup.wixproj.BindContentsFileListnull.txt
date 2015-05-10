@@ -1,2 +1,2 @@
 ..\bin\Release\BpmOnlineSiteConfigExtention.dll
-..\bin\Release\StackExchange.Redis.StrongName.dll
+..\bin\Release\ServiceStack.Redis.dll
