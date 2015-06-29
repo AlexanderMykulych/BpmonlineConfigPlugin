@@ -21,3 +21,4 @@ D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlin
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineConfig.csproj.GenerateResource.Cache
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.dll
 D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.pdb
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineConfig.csprojResolveAssemblyReference.cache

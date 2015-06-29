@@ -1,3 +1,8 @@
 D:\Projects\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmOnlineSiteConfigSetup.msi
 D:\Projects\bpmonline config\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmOnlineSiteConfigSetup.wixpdb
 obj\Release\Product.wixobj
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.msi
+D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.wixpdb
+obj\Release\BpmOnlineSiteConfigSetup.wixproj.BindContentsFileListnull.txt
+obj\Release\BpmOnlineSiteConfigSetup.wixproj.BindOutputsFileListnull.txt
+obj\Release\BpmOnlineSiteConfigSetup.wixproj.BindBuiltOutputsFileListnull.txt

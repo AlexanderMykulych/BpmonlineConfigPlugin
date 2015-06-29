@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-	<Product Id="*" Name="Bpm'online Site Configuration Extention" Language="1033" Version="1.3.0.0" Manufacturer="Config tools Inc." UpgradeCode="e934c3f0-8eb9-4a5a-86f3-edee317b0506">
+	<Product Id="*" Name="Bpm'online Site Configuration Extention" Language="1033" Version="1.3.1.0" Manufacturer="Config tools Inc." UpgradeCode="e934c3f0-8eb9-4a5a-86f3-edee317b0506">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
@@ -20,6 +20,8 @@
 		</Feature>
     
     <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />      <!-- Remove modify -->
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="Please Restart Internet Information Services (IIS) Manager." />
     
     <InstallExecuteSequence>
       <!-- Uninstall previous version before installing this one. -->
@@ -79,7 +81,7 @@
                         File="[WindowsFolder]system32\inetsrv\config\administration.config"
                         ElementPath="adminModuleProvider"
                         Name="type"
-                        Value="BpmOnlineConfig.IisManagement.BpmOnlineUIModuleProvider, BpmOnlineSiteConfigExtention, Version=1.3.0.0, Culture=neutral, PublicKeyToken=22cf30641e826faa"
+                        Value="BpmOnlineConfig.IisManagement.BpmOnlineUIModuleProvider, BpmOnlineSiteConfigExtention, Version=1.3.1.0, Culture=neutral, PublicKeyToken=22cf30641e826faa"
                         Sequence="3" />
 
         <util:XmlConfig Id ="removeAdminModuleProvider"
@@ -117,5 +119,17 @@
                       Sequence="1" />
       </Component>
 		</ComponentGroup>
+    <UI>
+      <Property Id="WIXUI_INSTALLDIR" Value="TARGETDIR" />
+      <Property Id="WixUI_Mode" Value="Custom" />
+
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="9" Bold="yes" />
+      <TextStyle Id="WixUI_Font_Title"  FaceName="Tahoma" Size="9" Bold="yes" />
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="EndDialog" Value="Return" Order="2"></Publish>
+    </UI>
+    <UIRef Id="WixUI_Common" />
 	</Fragment>
 </Wix>
