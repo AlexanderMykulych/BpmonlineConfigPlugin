@@ -13,7 +13,7 @@ namespace BpmOnlineConfig
 
         public string GetAttribute(string attributeName)
         {
-            var match = Regex.Match(ConnectionStringText, attributeName + @"\s*=\s*([A-Za-z0-9_.]*)", RegexOptions.IgnoreCase);
+            var match = Regex.Match(ConnectionStringText, attributeName + @"\s*=\s*([A-Za-z0-9_.-]*)", RegexOptions.IgnoreCase);
             if (match.Success)
             {
                 return match.Groups[1].Value;
@@ -30,7 +30,7 @@ namespace BpmOnlineConfig
             }
             if (value != null)
             {
-                var replacePattern = string.Format(@"({0}\s*=\s*)([A-Za-z0-9_.]*)", attributeName);
+                var replacePattern = string.Format(@"({0}\s*=\s*)([A-Za-z0-9_.-]*)", attributeName);
                 var regex = new Regex(replacePattern, RegexOptions.IgnoreCase);
                 var replacement = string.Format("$1{0}", attributeValue);
                 ConnectionStringText = regex.Replace(ConnectionStringText, replacement);
