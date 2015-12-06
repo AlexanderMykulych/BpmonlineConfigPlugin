@@ -42,8 +42,9 @@ namespace BpmOnlineConfig
             settings.Add(new LogPath(edtLogPath));
             settings.Add(new ApplicationName(edtApplicatinName));
             settings.Add(new SchedulerDb(chbSchedulerDb));
-            settings.Add(new UseFlatPackage(chbUseFlatPackage));
-            settings.Add(new UsePackageVersions(chbUsePackageVersions));
+            // Legacy
+            //settings.Add(new UseFlatPackage(chbUseFlatPackage));
+            //settings.Add(new UsePackageVersions(chbUsePackageVersions));
             settings.Add(new DefPackagesWorkingCopyPath(edtDefPackagesWorkingCopyPath));
             settings.Add(new UseSvn(chbUseSvn));
         }
@@ -95,6 +96,7 @@ namespace BpmOnlineConfig
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            lbSavingStatus.Text = "Saving...";
             _settings.Save();
             lbSavingStatus.Text = "Settings saved successfully";
         }

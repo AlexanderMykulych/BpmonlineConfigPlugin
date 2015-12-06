@@ -1,2 +1,2 @@
-D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.msi
-D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.wixpdb
+D:\Projects\BpmonlineConfigPlugin\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.msi
+D:\Projects\BpmonlineConfigPlugin\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Debug\BpmonlineConfigExtentionSetup.wixpdb

@@ -23,7 +23,8 @@ namespace BpmOnlineConfig.IisManagement
             {
                 // Server task list   
             }
-            if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal))
+            if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal) ||
+                string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal))
             {
                 var serverManager = new ServerManager();
                 BpmOnlineSite site;
@@ -31,7 +32,7 @@ namespace BpmOnlineConfig.IisManagement
                 {
                     site = new BpmOnlineSite(serverManager, item.Text, string.Empty);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return null;
                 }
@@ -41,10 +42,10 @@ namespace BpmOnlineConfig.IisManagement
                 }
                 return (TaskList)new BpmOnlineHierarchyTaskList(_owner, site); 
             }
-            if (string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal))
+            /*if (string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal))
             {
                 // Application task list
-            }
+            }*/
             return (TaskList) null;
         }
 

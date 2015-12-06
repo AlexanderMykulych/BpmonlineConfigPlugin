@@ -43,7 +43,7 @@ namespace BpmOnlineConfig.IisManagement
             {
                 site = new BpmOnlineSite(serverManager, siteName, virtualPath);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

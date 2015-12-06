@@ -32,26 +32,35 @@ namespace BpmOnlineConfig
             SiteName = siteName;
             VirtualPath = virtualPath;
             var site = serverManager.Sites.FirstOrDefault(e => e.Name == siteName);
-            if (site != null)
+            if (site == null)
             {
-                var rootApplication = site.Applications.FirstOrDefault(a => a.Path == "/");
-                if (rootApplication == null)
-                {
-                    return;
-                }
-                var siteRootPath = GetApplicationPhisicalPath(rootApplication);
-                if (!File.Exists(siteRootPath + @"\Web.config"))
-                {
-                    return;
-                }
-                SiteConfig = new ConfigFile(siteRootPath, "Web.config");
-                ConnectionStringsConfig = new ConfigFile(siteRootPath, "ConnectionStrings.config");
-                BpmonlineApplication = site.Applications.FirstOrDefault(a => a.Path != "/");
-                if (BpmonlineApplication != null)
-                {
-                    ApplicationConfig = new ConfigFile(GetApplicationPhisicalPath(BpmonlineApplication), "Web.config");
-                    Log4NetConfig = new ConfigFile(GetApplicationPhisicalPath(BpmonlineApplication), "log4net.config");
-                }
+                return;
+            }
+            var rootApplicationVirtualPath = (virtualPath == String.Empty) ? "/" : virtualPath;
+            var rootApplication = site.Applications.FirstOrDefault(a => a.Path == rootApplicationVirtualPath);
+            if (rootApplication == null)
+            {
+                return;
+            }
+            var siteRootPath = GetApplicationPhisicalPath(rootApplication);
+            if (!File.Exists(siteRootPath + @"\Web.config"))
+            {
+                return;
+            }
+            SiteConfig = new ConfigFile(siteRootPath, "Web.config");
+            if (!File.Exists(siteRootPath + @"\ConnectionStrings.config"))
+            {
+                return;
+            }
+            ConnectionStringsConfig = new ConfigFile(siteRootPath, "ConnectionStrings.config");
+            BpmonlineApplication = site.Applications.FirstOrDefault(a => 
+                a.Path != rootApplicationVirtualPath && a.Path.StartsWith(rootApplicationVirtualPath));
+            if (BpmonlineApplication != null)
+            {
+                ApplicationConfig = new ConfigFile(GetApplicationPhisicalPath(BpmonlineApplication),
+                    "Web.config");
+                Log4NetConfig = new ConfigFile(GetApplicationPhisicalPath(BpmonlineApplication),
+                    "log4net.config");
             }
         } 
 

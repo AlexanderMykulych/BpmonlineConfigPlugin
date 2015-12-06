@@ -58,13 +58,11 @@
             this.btnBrowseLogPath = new System.Windows.Forms.Button();
             this.edtLogPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.chbUsePackageVersions = new System.Windows.Forms.CheckBox();
-            this.chbUseFlatPackage = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chbUseSvn = new System.Windows.Forms.CheckBox();
             this.btnBrowseDefPackagesWorkingCopyPath = new System.Windows.Forms.Button();
             this.edtDefPackagesWorkingCopyPath = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.chbUseSvn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.edtSessionTimeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaxEntityNameLength)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -340,33 +338,11 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Path";
             // 
-            // chbUsePackageVersions
-            // 
-            this.chbUsePackageVersions.AutoSize = true;
-            this.chbUsePackageVersions.Location = new System.Drawing.Point(174, 24);
-            this.chbUsePackageVersions.Name = "chbUsePackageVersions";
-            this.chbUsePackageVersions.Size = new System.Drawing.Size(134, 17);
-            this.chbUsePackageVersions.TabIndex = 15;
-            this.chbUsePackageVersions.Text = "Use Package Versions";
-            this.chbUsePackageVersions.UseVisualStyleBackColor = true;
-            // 
-            // chbUseFlatPackage
-            // 
-            this.chbUseFlatPackage.AutoSize = true;
-            this.chbUseFlatPackage.Location = new System.Drawing.Point(358, 24);
-            this.chbUseFlatPackage.Name = "chbUseFlatPackage";
-            this.chbUseFlatPackage.Size = new System.Drawing.Size(111, 17);
-            this.chbUseFlatPackage.TabIndex = 16;
-            this.chbUseFlatPackage.Text = "Use Flat Package";
-            this.chbUseFlatPackage.UseVisualStyleBackColor = true;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.chbUseSvn);
             this.groupBox4.Controls.Add(this.btnBrowseDefPackagesWorkingCopyPath);
-            this.groupBox4.Controls.Add(this.chbUseFlatPackage);
             this.groupBox4.Controls.Add(this.edtDefPackagesWorkingCopyPath);
-            this.groupBox4.Controls.Add(this.chbUsePackageVersions);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Location = new System.Drawing.Point(17, 357);
             this.groupBox4.Name = "groupBox4";
@@ -374,6 +350,16 @@
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Packages Settings (ver 7.5 and higher)";
+            // 
+            // chbUseSvn
+            // 
+            this.chbUseSvn.AutoSize = true;
+            this.chbUseSvn.Location = new System.Drawing.Point(10, 24);
+            this.chbUseSvn.Name = "chbUseSvn";
+            this.chbUseSvn.Size = new System.Drawing.Size(70, 17);
+            this.chbUseSvn.TabIndex = 18;
+            this.chbUseSvn.Text = "Use SVN";
+            this.chbUseSvn.UseVisualStyleBackColor = true;
             // 
             // btnBrowseDefPackagesWorkingCopyPath
             // 
@@ -400,16 +386,6 @@
             this.label6.Size = new System.Drawing.Size(187, 13);
             this.label6.TabIndex = 1;
             this.label6.Text = "Default Packages Working Copy Path";
-            // 
-            // chbUseSvn
-            // 
-            this.chbUseSvn.AutoSize = true;
-            this.chbUseSvn.Location = new System.Drawing.Point(10, 24);
-            this.chbUseSvn.Name = "chbUseSvn";
-            this.chbUseSvn.Size = new System.Drawing.Size(70, 17);
-            this.chbUseSvn.TabIndex = 18;
-            this.chbUseSvn.Text = "Use SVN";
-            this.chbUseSvn.UseVisualStyleBackColor = true;
             // 
             // BpmonlineConfiguration
             // 
@@ -476,8 +452,6 @@
         private System.Windows.Forms.Button btnBrowseLogPath;
         private System.Windows.Forms.TextBox edtLogPath;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox chbUsePackageVersions;
-        private System.Windows.Forms.CheckBox chbUseFlatPackage;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnBrowseDefPackagesWorkingCopyPath;
         private System.Windows.Forms.TextBox edtDefPackagesWorkingCopyPath;

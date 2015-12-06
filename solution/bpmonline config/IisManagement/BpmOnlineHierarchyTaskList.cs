@@ -23,7 +23,6 @@ namespace BpmOnlineConfig.IisManagement
             var arrayList = new ArrayList();
             if (connection.IsLocalConnection)
             {
-                //arrayList.Add(new TextTaskItem("Redis", "Redis", true));
                 var taskItem = new MethodTaskItem("FlushRedisTask", "Flush Redis DB", "Browse", String.Empty, image: null)
                 {
                     Usage = MethodTaskItemUsages.ContextMenu
