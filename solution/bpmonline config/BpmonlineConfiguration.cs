@@ -45,7 +45,9 @@ namespace BpmOnlineConfig
             // Legacy
             //settings.Add(new UseFlatPackage(chbUseFlatPackage));
             //settings.Add(new UsePackageVersions(chbUsePackageVersions));
+            settings.Add(new DefWorkingCopyPath(edtDefWorkingCopyPath));
             settings.Add(new DefPackagesWorkingCopyPath(edtDefPackagesWorkingCopyPath));
+            settings.Add(new SourceControlAuthPath(edtSourceControlAuthPath));
             settings.Add(new UseSvn(chbUseSvn));
         }
 
@@ -142,6 +144,24 @@ namespace BpmOnlineConfig
         private void chbExtractAllCSSources_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBrowseDefWorkingCopyPath_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog.SelectedPath = GetPathForBrowserDialog(edtDefPackagesWorkingCopyPath.Text);
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                edtDefWorkingCopyPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath, @"\%WORKSPACE%");
+            }
+        }
+
+        private void btnBrowseSourceControlAuthPath_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog.SelectedPath = GetPathForBrowserDialog(edtDefPackagesWorkingCopyPath.Text);
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                edtSourceControlAuthPath.Text = GetSelectedPath(folderBrowserDialog.SelectedPath, @"\%WORKSPACE%");
+            }
         }
 
     }

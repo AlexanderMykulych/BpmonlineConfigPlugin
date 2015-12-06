@@ -3,7 +3,7 @@ using BpmOnlineConfig.Settings.Base;
 
 namespace BpmOnlineConfig.Settings
 {
-    class DefPackagesWorkingCopyPath : TextSetting
+    class DefWorkingCopyPath : TextSetting
     {
         public override bool IsAvailable
         {
@@ -25,11 +25,11 @@ namespace BpmOnlineConfig.Settings
             }
         }
 
-        public DefPackagesWorkingCopyPath(TextBox control) : base(control) { }
+        public DefWorkingCopyPath(TextBox control) : base(control) { }
 
         public override string Read()
         {
-            var path = Site.ConnectionStringsConfig.GetConfigParameterValue("add[@name=\"defPackagesWorkingCopyPath\"]",
+            var path = Site.ConnectionStringsConfig.GetConfigParameterValue("add[@name=\"defWorkingCopyPath\"]",
                 "connectionString");
             return (path == null) ? null : path.ToString();
         }
@@ -40,7 +40,7 @@ namespace BpmOnlineConfig.Settings
             {
                 return;
             }
-            Site.ConnectionStringsConfig.SetConfigParameterValue("add[@name=\"defPackagesWorkingCopyPath\"]", "connectionString", ControlValue);
+            Site.ConnectionStringsConfig.SetConfigParameterValue("add[@name=\"defWorkingCopyPath\"]", "connectionString", ControlValue);
         }
     }
 }

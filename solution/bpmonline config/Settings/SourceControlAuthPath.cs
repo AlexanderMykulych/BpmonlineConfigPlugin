@@ -3,7 +3,7 @@ using BpmOnlineConfig.Settings.Base;
 
 namespace BpmOnlineConfig.Settings
 {
-    class DefPackagesWorkingCopyPath : TextSetting
+    class SourceControlAuthPath : TextSetting
     {
         public override bool IsAvailable
         {
@@ -25,7 +25,7 @@ namespace BpmOnlineConfig.Settings
             }
         }
 
-        public DefPackagesWorkingCopyPath(TextBox control) : base(control) { }
+        public SourceControlAuthPath(TextBox control) : base(control) { }
 
         public override string Read()
         {

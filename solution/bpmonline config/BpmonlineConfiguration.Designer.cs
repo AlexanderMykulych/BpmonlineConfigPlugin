@@ -59,6 +59,12 @@
             this.edtLogPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnBrowseSourceControlAuthPath = new System.Windows.Forms.Button();
+            this.edtSourceControlAuthPath = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnBrowseDefWorkingCopyPath = new System.Windows.Forms.Button();
+            this.edtDefWorkingCopyPath = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.chbUseSvn = new System.Windows.Forms.CheckBox();
             this.btnBrowseDefPackagesWorkingCopyPath = new System.Windows.Forms.Button();
             this.edtDefPackagesWorkingCopyPath = new System.Windows.Forms.TextBox();
@@ -73,7 +79,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(17, 461);
+            this.btnSave.Location = new System.Drawing.Point(17, 514);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 34);
             this.btnSave.TabIndex = 0;
@@ -268,7 +274,7 @@
             // 
             this.lbSavingStatus.AutoSize = true;
             this.lbSavingStatus.ForeColor = System.Drawing.Color.LightGreen;
-            this.lbSavingStatus.Location = new System.Drawing.Point(98, 472);
+            this.lbSavingStatus.Location = new System.Drawing.Point(98, 525);
             this.lbSavingStatus.Name = "lbSavingStatus";
             this.lbSavingStatus.Size = new System.Drawing.Size(0, 13);
             this.lbSavingStatus.TabIndex = 10;
@@ -340,16 +346,74 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnBrowseSourceControlAuthPath);
+            this.groupBox4.Controls.Add(this.edtSourceControlAuthPath);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.btnBrowseDefWorkingCopyPath);
+            this.groupBox4.Controls.Add(this.edtDefWorkingCopyPath);
+            this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.chbUseSvn);
             this.groupBox4.Controls.Add(this.btnBrowseDefPackagesWorkingCopyPath);
             this.groupBox4.Controls.Add(this.edtDefPackagesWorkingCopyPath);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Location = new System.Drawing.Point(17, 357);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(631, 86);
+            this.groupBox4.Size = new System.Drawing.Size(631, 139);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Packages Settings (ver 7.5 and higher)";
+            this.groupBox4.Text = "SVN Settings";
+            // 
+            // btnBrowseSourceControlAuthPath
+            // 
+            this.btnBrowseSourceControlAuthPath.Location = new System.Drawing.Point(597, 99);
+            this.btnBrowseSourceControlAuthPath.Name = "btnBrowseSourceControlAuthPath";
+            this.btnBrowseSourceControlAuthPath.Size = new System.Drawing.Size(28, 24);
+            this.btnBrowseSourceControlAuthPath.TabIndex = 24;
+            this.btnBrowseSourceControlAuthPath.Text = "...";
+            this.btnBrowseSourceControlAuthPath.UseVisualStyleBackColor = true;
+            this.btnBrowseSourceControlAuthPath.Click += new System.EventHandler(this.btnBrowseSourceControlAuthPath_Click);
+            // 
+            // edtSourceControlAuthPath
+            // 
+            this.edtSourceControlAuthPath.Location = new System.Drawing.Point(216, 99);
+            this.edtSourceControlAuthPath.Name = "edtSourceControlAuthPath";
+            this.edtSourceControlAuthPath.Size = new System.Drawing.Size(375, 20);
+            this.edtSourceControlAuthPath.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(127, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Source Control Auth Path";
+            // 
+            // btnBrowseDefWorkingCopyPath
+            // 
+            this.btnBrowseDefWorkingCopyPath.Location = new System.Drawing.Point(597, 47);
+            this.btnBrowseDefWorkingCopyPath.Name = "btnBrowseDefWorkingCopyPath";
+            this.btnBrowseDefWorkingCopyPath.Size = new System.Drawing.Size(28, 24);
+            this.btnBrowseDefWorkingCopyPath.TabIndex = 21;
+            this.btnBrowseDefWorkingCopyPath.Text = "...";
+            this.btnBrowseDefWorkingCopyPath.UseVisualStyleBackColor = true;
+            this.btnBrowseDefWorkingCopyPath.Click += new System.EventHandler(this.btnBrowseDefWorkingCopyPath_Click);
+            // 
+            // edtDefWorkingCopyPath
+            // 
+            this.edtDefWorkingCopyPath.Location = new System.Drawing.Point(216, 47);
+            this.edtDefWorkingCopyPath.Name = "edtDefWorkingCopyPath";
+            this.edtDefWorkingCopyPath.Size = new System.Drawing.Size(375, 20);
+            this.edtDefWorkingCopyPath.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Default Working Copy Path";
             // 
             // chbUseSvn
             // 
@@ -363,7 +427,7 @@
             // 
             // btnBrowseDefPackagesWorkingCopyPath
             // 
-            this.btnBrowseDefPackagesWorkingCopyPath.Location = new System.Drawing.Point(597, 47);
+            this.btnBrowseDefPackagesWorkingCopyPath.Location = new System.Drawing.Point(597, 73);
             this.btnBrowseDefPackagesWorkingCopyPath.Name = "btnBrowseDefPackagesWorkingCopyPath";
             this.btnBrowseDefPackagesWorkingCopyPath.Size = new System.Drawing.Size(28, 24);
             this.btnBrowseDefPackagesWorkingCopyPath.TabIndex = 3;
@@ -373,7 +437,7 @@
             // 
             // edtDefPackagesWorkingCopyPath
             // 
-            this.edtDefPackagesWorkingCopyPath.Location = new System.Drawing.Point(216, 47);
+            this.edtDefPackagesWorkingCopyPath.Location = new System.Drawing.Point(216, 73);
             this.edtDefPackagesWorkingCopyPath.Name = "edtDefPackagesWorkingCopyPath";
             this.edtDefPackagesWorkingCopyPath.Size = new System.Drawing.Size(375, 20);
             this.edtDefPackagesWorkingCopyPath.TabIndex = 2;
@@ -381,7 +445,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 50);
+            this.label6.Location = new System.Drawing.Point(7, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 13);
             this.label6.TabIndex = 1;
@@ -390,11 +454,11 @@
             // BpmonlineConfiguration
             // 
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.lbSavingStatus);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.chbSchedulerDb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.edtApplicatinName);
-            this.Controls.Add(this.lbSavingStatus);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
@@ -405,7 +469,7 @@
             this.Controls.Add(this.edtSessionTimeOut);
             this.Controls.Add(this.btnSave);
             this.Name = "BpmonlineConfiguration";
-            this.Size = new System.Drawing.Size(670, 520);
+            this.Size = new System.Drawing.Size(665, 579);
             ((System.ComponentModel.ISupportInitialize)(this.edtSessionTimeOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtMaxEntityNameLength)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -457,5 +521,11 @@
         private System.Windows.Forms.TextBox edtDefPackagesWorkingCopyPath;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chbUseSvn;
+        private System.Windows.Forms.Button btnBrowseSourceControlAuthPath;
+        private System.Windows.Forms.TextBox edtSourceControlAuthPath;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnBrowseDefWorkingCopyPath;
+        private System.Windows.Forms.TextBox edtDefWorkingCopyPath;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -87,6 +87,8 @@
     <Compile Include="Settings\ApplicationName.cs" />
     <Compile Include="Settings\Base\BooleanSetting.cs" />
     <Compile Include="Settings\Base\BaseSetting.cs" />
+    <Compile Include="Settings\SourceControlAuthPath.cs" />
+    <Compile Include="Settings\DefWorkingCopyPath.cs" />
     <Compile Include="Settings\CsPath.cs" />
     <Compile Include="Settings\DefPackagesWorkingCopyPath.cs" />
     <Compile Include="Settings\ExtractAllCsSources.cs" />
