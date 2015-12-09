@@ -29,7 +29,7 @@ namespace BpmOnlineConfig.Settings
 
         public override string Read()
         {
-			var path = Site.ConnectionStringsConfig.GetConfigParameterValue("add[@name=\"sourceControlAuthPath\"]",
+            var path = Site.ConnectionStringsConfig.GetConfigParameterValue("add[@name=\"defPackagesWorkingCopyPath\"]",
                 "connectionString");
             return (path == null) ? null : path.ToString();
         }
@@ -40,7 +40,7 @@ namespace BpmOnlineConfig.Settings
             {
                 return;
             }
-			Site.ConnectionStringsConfig.SetConfigParameterValue("add[@name=\"sourceControlAuthPath\"]", "connectionString", ControlValue);
+            Site.ConnectionStringsConfig.SetConfigParameterValue("add[@name=\"defPackagesWorkingCopyPath\"]", "connectionString", ControlValue);
         }
     }
 }

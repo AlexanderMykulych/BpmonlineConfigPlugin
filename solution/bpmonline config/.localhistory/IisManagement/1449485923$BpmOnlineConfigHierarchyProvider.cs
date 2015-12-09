@@ -16,7 +16,7 @@ namespace BpmOnlineConfig.IisManagement
 			if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal)) {
 				return currentApplicationPath;
 			}
-			return GetApplicationPath(item.Parent, "/" + item.Text + currentApplicationPath);
+			GetApplicationPath(item.Parent, "/" + item.Text + currentApplicationPath);
 		}
 
 		private string GetSiteName(HierarchyInfo item) {

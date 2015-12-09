@@ -16,7 +16,6 @@ namespace BpmOnlineConfig.IisManagement
 			if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal)) {
 				return currentApplicationPath;
 			}
-			return GetApplicationPath(item.Parent, "/" + item.Text + currentApplicationPath);
 		}
 
 		private string GetSiteName(HierarchyInfo item) {
@@ -41,7 +40,7 @@ namespace BpmOnlineConfig.IisManagement
             if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal) ||
                 string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal)) {
 				var siteName = GetSiteName(item);
-				var virtualPath = GetApplicationPath(item, "");
+				var virtualPath = GetApplicationPath(item, "/" + item.Text);
                 var serverManager = new ServerManager();
                 BpmOnlineSite site;
                 try

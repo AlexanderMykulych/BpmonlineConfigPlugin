@@ -12,20 +12,6 @@ namespace BpmOnlineConfig.IisManagement
     {
         private BpmOnlineConfigUI _owner;
 
-		private string GetApplicationPath(HierarchyInfo item, string currentApplicationPath) {
-			if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal)) {
-				return currentApplicationPath;
-			}
-			return GetApplicationPath(item.Parent, "/" + item.Text + currentApplicationPath);
-		}
-
-		private string GetSiteName(HierarchyInfo item) {
-			if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal)) {
-				return item.Text;
-			}
-			return GetSiteName(item.Parent);
-		}
-
         public BpmOnlineConfigHierarchyProvider(BpmOnlineConfigUI owner)
           : base((IServiceProvider) owner)
         {
@@ -34,14 +20,17 @@ namespace BpmOnlineConfig.IisManagement
 
         public override TaskList GetTasks(HierarchyInfo item)
         {
+			var connection = (Connection)_owner.ServiceProvider.GetService(typeof(Connection));
+			var siteName = connection.ConfigurationPath.SiteName;
+			var virtualPath = connection.ConfigurationPath.ApplicationPath +
+							  connection.ConfigurationPath.FolderPath;
 			if (string.Equals(item.NodeType, HierarchyInfo.ServerConnection, StringComparison.Ordinal))
             {
                 // Server task list   
             }
             if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal) ||
-                string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal)) {
-				var siteName = GetSiteName(item);
-				var virtualPath = GetApplicationPath(item, "");
+                string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal))
+            {
                 var serverManager = new ServerManager();
                 BpmOnlineSite site;
                 try
@@ -65,7 +54,7 @@ namespace BpmOnlineConfig.IisManagement
             return (TaskList) null;
         }
 
-	    public override HierarchyInfo[] GetChildren(HierarchyInfo item)
+        public override HierarchyInfo[] GetChildren(HierarchyInfo item)
         {
             return (HierarchyInfo[])null;
         }

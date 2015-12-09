@@ -12,18 +12,12 @@ namespace BpmOnlineConfig.IisManagement
     {
         private BpmOnlineConfigUI _owner;
 
-		private string GetApplicationPath(HierarchyInfo item, string currentApplicationPath) {
-			if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal)) {
-				return currentApplicationPath;
-			}
-			return GetApplicationPath(item.Parent, "/" + item.Text + currentApplicationPath);
+		private string GetApplicationPath(object item) {
+			throw new NotImplementedException();
 		}
 
 		private string GetSiteName(HierarchyInfo item) {
-			if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal)) {
-				return item.Text;
-			}
-			return GetSiteName(item.Parent);
+			throw new NotImplementedException();
 		}
 
         public BpmOnlineConfigHierarchyProvider(BpmOnlineConfigUI owner)
@@ -41,7 +35,7 @@ namespace BpmOnlineConfig.IisManagement
             if (string.Equals(item.NodeType, HierarchyInfo.Site, StringComparison.Ordinal) ||
                 string.Equals(item.NodeType, HierarchyInfo.Application, StringComparison.Ordinal)) {
 				var siteName = GetSiteName(item);
-				var virtualPath = GetApplicationPath(item, "");
+				var virtualPath = GetApplicationPath(Item);
                 var serverManager = new ServerManager();
                 BpmOnlineSite site;
                 try

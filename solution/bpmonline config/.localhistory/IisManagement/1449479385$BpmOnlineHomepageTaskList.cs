@@ -37,7 +37,6 @@ namespace BpmOnlineConfig.IisManagement
                         arrayList = GetSiteTaskItems();
                         break;
                     case ConfigurationPathType.Application:
-						arrayList = GetApplicationTaskItems();
                         break;
                 }
             }
@@ -62,18 +61,6 @@ namespace BpmOnlineConfig.IisManagement
             }
             return arrayList;
         }
-
-		private ArrayList GetApplicationTaskItems() {
-			var arrayList = new ArrayList();
-			if (_connection.IsLocalConnection) {
-				arrayList.Add(new TextTaskItem("Redis", "Redis", true));
-				var taskItem = new MethodTaskItem("FlushRedisTask", "Flush DB", "Redis", String.Empty, image: null) {
-					Usage = _usage
-				};
-				arrayList.Add(taskItem);
-			}
-			return arrayList;
-		}
 
         private void ShowError(Exception ex)
         {

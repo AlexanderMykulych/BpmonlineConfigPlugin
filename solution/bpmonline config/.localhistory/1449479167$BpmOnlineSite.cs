@@ -53,7 +53,7 @@ namespace BpmOnlineConfig
                 return;
             }
             ConnectionStringsConfig = new ConfigFile(siteRootPath, "ConnectionStrings.config");
-	        var applicationPathBeginning = (rootApplicationVirtualPath == "/") ? "/" : rootApplicationVirtualPath + "/";
+	        var applicationPathBeginning = rootApplicationVirtualPath == "/" ? "/" : rootApplicationVirtualPath + "/";
             BpmonlineApplication = site.Applications.FirstOrDefault(a =>
 				a.Path != rootApplicationVirtualPath && a.Path.StartsWith(applicationPathBeginning));
             if (BpmonlineApplication != null)
