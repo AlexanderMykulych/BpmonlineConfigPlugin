@@ -42,3 +42,13 @@ C:\Projects\bpmonline config\bpmonline config\obj\Release\BpmOnlineConfig.Bpmonl
 C:\Projects\bpmonline config\bpmonline config\obj\Release\BpmOnlineConfig.csproj.GenerateResource.Cache
 C:\Projects\bpmonline config\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.dll
 C:\Projects\bpmonline config\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.pdb
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.dll
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.pdb
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.dll.CodeAnalysisLog.xml
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\BpmOnlineSiteConfigExtention.dll.lastcodeanalysissucceeded
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\bin\Release\ServiceStack.Redis.dll
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineConfig.csprojResolveAssemblyReference.cache
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineConfig.BpmonlineConfiguration.resources
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineConfig.csproj.GenerateResource.Cache
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.dll
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\obj\Release\BpmOnlineSiteConfigExtention.pdb

@@ -6,3 +6,5 @@ D:\Projects\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigS
 obj\Release\BpmOnlineSiteConfigSetup.wixproj.BindContentsFileListnull.txt
 obj\Release\BpmOnlineSiteConfigSetup.wixproj.BindOutputsFileListnull.txt
 obj\Release\BpmOnlineSiteConfigSetup.wixproj.BindBuiltOutputsFileListnull.txt
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.msi
+y:\Projects\bpmonline config\BpmonlineConfigPlugin\solution\bpmonline config\BpmOnlineSiteConfigSetup\bin\Release\BpmonlineConfigExtentionSetup.wixpdb

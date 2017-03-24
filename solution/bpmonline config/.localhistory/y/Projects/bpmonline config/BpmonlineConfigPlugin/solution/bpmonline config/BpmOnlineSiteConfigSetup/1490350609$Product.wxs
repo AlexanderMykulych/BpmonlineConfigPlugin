@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+	<Product Id="*" Name="Bpm'online Site Configuration Extention" Language="1033" Version="1.3.1.0" Manufacturer="Config tools Inc." UpgradeCode="e934c3f0-8eb9-4a5a-86f3-edee317b0506">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+    <PropertyRef Id="NETFRAMEWORK35"/>
+    <Upgrade Id="e934c3f0-8eb9-4a5a-86f3-edee317b0506">  
+       <UpgradeVersion
+          Minimum="1.0.0.0" Maximum="99.0.0.0"
+          Property="PREVIOUSVERSIONSINSTALLED"
+          IncludeMinimum="yes" IncludeMaximum="no" />
+    </Upgrade> 
+    <Media Id="1" Cabinet="Cab1.cab" EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="BpmonlineConfigExtentionSetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+    
+    <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />      <!-- Remove modify -->
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT" Value="Please Restart Internet Information Services (IIS) Manager." />
+    
+    <InstallExecuteSequence>
+      <!-- Uninstall previous version before installing this one. -->
+      <RemoveExistingProducts After="InstallInitialize"/>
+    </InstallExecuteSequence>
+
+    <Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK35]]>
+    </Condition>
+
+	</Product>
+  
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="ProductDirectory" Name="[ProductName]">
+          <Directory Id="GAC" Name="GAC">
+          </Directory>
+          <Directory Id="WindowsFolder" Name="WindowsFolder" />
+        </Directory>
+      </Directory>
+    </Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents">
+			<Component Id="BpmOnlineSiteConfigExtention" Guid="55857611-A13E-51ED-897B-A78830F68ADC" DiskId="1" Directory="GAC">
+        <!-- Registering assemblies in GAC -->
+        <File Id="F_BpmOnlineSiteConfigExtention" 
+              Name="BpmOnlineSiteConfigExtention.dll" Source="..\bin\Release\BpmOnlineSiteConfigExtention.dll" KeyPath="yes" Assembly=".net"/>
+                                                             <!-- Change Debug to Release if need -->
+      </Component>
+      <Component Id="ServiceStack_Redis" Guid="D4CCEBA5-0B9D-4E7E-ACF2-1BB589F62473" DiskId="1" Directory="GAC">
+        <File Id="F_ServiceStack_Redis"
+              Name="ServiceStack.Redis.dll" Source="..\bin\Release\ServiceStack.Redis.dll" KeyPath="yes" Assembly=".net"/>
+                                                             <!-- Change Debug to Release if need -->
+      </Component>
+      <Component Id="BpmOnlineSiteConfigExtention_XMLReg" Guid="55857611-A13E-51ED-897B-A78830F69ADC" DiskId="1" Win64="yes" Directory="WindowsFolder">
+        <!-- Registering IIS Manager extention -->
+        <util:XmlConfig Id="adminModuleProvider"
+                        File="[WindowsFolder]system32\inetsrv\config\administration.config"
+                        Action="create"
+                        ElementPath="//configuration/moduleProviders"
+                        Name="add"
+                        Node="element"
+                        Sequence="1"
+                        On="install" />
+
+        <util:XmlConfig Id="adminModuleProviderName"
+                        File="[WindowsFolder]system32\inetsrv\config\administration.config"
+                        ElementPath="adminModuleProvider"
+                        Name="name"
+                        Value="BpmOnlineConfig"
+                        Sequence="2" />
+
+        <util:XmlConfig Id="adminModuleProviderType"
+                        File="[WindowsFolder]system32\inetsrv\config\administration.config"
+                        ElementPath="adminModuleProvider"
+                        Name="type"
+                        Value="BpmOnlineConfig.IisManagement.BpmOnlineUIModuleProvider, BpmOnlineSiteConfigExtention, Version=1.3.1.0, Culture=neutral, PublicKeyToken=22cf30641e826faa"
+                        Sequence="3" />
+
+        <util:XmlConfig Id ="removeAdminModuleProvider"
+                        File="[WindowsFolder]system32\inetsrv\config\administration.config"
+                        Action="delete"
+                        ElementPath="//configuration/moduleProviders"
+                        Node="element"
+                        VerifyPath="add[\[]@name='BpmOnlineConfig'[\]]"
+                        On="uninstall"
+                        Sequence="1" />
+
+        <util:XmlConfig Id="adminModule"
+                      File="[WindowsFolder]system32\inetsrv\config\administration.config"
+                      Action="create"
+                      ElementPath="//configuration/location[\[]@path='.'[\]]/modules"
+                      Name="add"
+                      Node="element"
+                      Sequence="1"
+                      On="install" />
+
+        <util:XmlConfig Id="adminModuleName"
+                      File="[WindowsFolder]system32\inetsrv\config\administration.config"
+                      ElementPath="adminModule"
+                      Name="name"
+                      Value="BpmOnlineConfig"
+                      Sequence="2" />
+
+        <util:XmlConfig Id ="removeAdminModule"
+                      File="[WindowsFolder]system32\inetsrv\config\administration.config"
+                      Action="delete"
+                      ElementPath="//configuration/location[\[]@path='.'[\]]/modules"
+                      Node="element"
+                      VerifyPath="add[\[]@name='BpmOnlineConfig'[\]]"
+                      On="uninstall"
+                      Sequence="1" />
+      </Component>
+		</ComponentGroup>
+    <UI>
+      <Property Id="WIXUI_INSTALLDIR" Value="TARGETDIR" />
+      <Property Id="WixUI_Mode" Value="Custom" />
+
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="9" Bold="yes" />
+      <TextStyle Id="WixUI_Font_Title"  FaceName="Tahoma" Size="9" Bold="yes" />
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="EndDialog" Value="Return" Order="2"></Publish>
+    </UI>
+    <UIRef Id="WixUI_Common" />
+	</Fragment>
+</Wix>

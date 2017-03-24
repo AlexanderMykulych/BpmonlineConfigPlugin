@@ -103,6 +103,7 @@
     <Compile Include="Settings\Base\TextSetting.cs" />
     <Compile Include="Settings\UncompressedCoreJs.cs" />
     <Compile Include="Settings\UseFlatPackage.cs" />
+    <Compile Include="Settings\UseIncludeDependenciesSource.cs" />
     <Compile Include="Settings\UsePackageVersions.cs" />
     <Compile Include="Settings\UseSvn.cs" />
     <Compile Include="Settings\WebSocketsPort.cs" />
